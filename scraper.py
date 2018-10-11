@@ -16,6 +16,10 @@ def move_from_insurgence(move):
     movelist = ["achillesheel","ancientroar","corrode","crystalrush","darkmatter","dracojet","dragonify","drakonvoice","jetstream","livewire","lunarcannon","medusaray","morph","nanorepair","newmoon","permafrost","retrograde","wildfire","wormhole","zombiestrike"]
     return move in movelist
 
+def ability_from_insurgence(ability):
+    abilitylist = ["absolution","amplifier","ancientpresence","athenian","blazeboost","castlemoat", "chlorofury","etherealshroud","eventhorizon","foundry","glitch","heliophobia","hubris","icecleats","intoxicate","irrelephant","learnean","noctem","omnitype","pendulum","periodicorbit","phototroph","prismguard","proteanmaxima","psychocall","regurgitation","shadowcall","shadowdance","sleet","spectraljaws","speedswap","spiritcall","supercell","syntheticalloy","unleafed","vaporization","venomous","windforce","winterjoy"]
+    return ability.lower().replace(" ","") in abilitylist
+
 def extract_moveset(text):
     regex = "(?i){{Learnlist/(.*)}}"
     match = re.findall(regex,text)
@@ -74,11 +78,11 @@ def format_pokemon(i):
         newentry['types'].append(i['type2'])
     newentry['genderRatio'] = {"M": 0.50, "F": 0.50}
     newentry['baseStats'] = {"hp": i['HP'], "atk": i['Attack'], "def": i['Defense'], "spa": i['SpAtk'], "spd": i['SpDef'], "spe": i['Speed']}
-    newentry['abilities'] = {0: i['ability1']}
+    newentry['abilities'] = {0: "Pickup" if ability_from_insurgence(i['ability1']) else i['ability1']}
     if("ability2" in i):
-        newentry['abilities'][1] = i['ability2']
+        newentry['abilities'][1] = "Pickup" if ability_from_insurgence(i['ability2']) else i['ability2']
     if("abilityd" in i):
-        newentry['abilities']['H'] = i['abilityd']
+        newentry['abilities']['H'] = "Pickup" if ability_from_insurgence(i['abilityd']) else i['abilityd']
     newentry['heightm'] = i['height-m']
     newentry['weightkg'] = i['weight-kg']
     newentry['color'] = "Green"
@@ -102,11 +106,12 @@ def extract_pokemon_list():
 
 pokemon = extract_pokemon_list()
 out = {}
-# for i in pokemon:
-#     url = url_from_id(i)
-#     print(url)
-#     dex = format_pokemon(extract_pokemon(requests.get(url).text))
-#     out[dex['species'].lower()] = dex
+for i in pokemon:
+    url = url_from_id(i)
+    print(url)
+    dex = format_pokemon(extract_pokemon(requests.get(url).text))
+    out[dex['species'].lower()] = dex
+open("pokemon.json","w").write(json.dumps(out))
 out = json.loads(open("pokemon.json","r").read())
 jsonout = "{\n"
 for k, v in out.items():
