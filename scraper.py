@@ -55,16 +55,18 @@ def extract_pokemon(text):
     for i in card:
         if i == '':
             continue
-        isplit = i.replace(" ","").split("=")
-        dex[isplit[0]] = isplit[1]
+        isplit = i.split("=")
+        dex[isplit[0].strip()] = isplit[1].strip()
+        if "ability" in isplit[0]:
+            dex[isplit[0].strip()] = re.sub('([A-Z])', r' \1', isplit[1].strip()).strip()
     regex = "(?i)Basestats==(.*?){{(.*?)Stats(.*?)(?=}})"
     card = re.search(regex,text.replace("\n","").replace("\r","").replace(" ","")).group().split("|")
     card.pop(0)
     for i in card:
         if i == '':
             continue
-        isplit = i.replace(" ","").split("=")
-        dex[isplit[0]] = isplit[1]
+        isplit = i.split("=")
+        dex[isplit[0].strip()] = isplit[1].strip()
     print(dex['name'])
     return dex
 
@@ -93,9 +95,43 @@ def format_pokemon(i):
 def format_moveset(moveset):
     learnset = {}
     for i in moveset:
+        if i == []:
+            continue
         learnset[i[1]] = [i[0]]
     return learnset
 
+def convert_pokemon_js_source(out):
+    jsonout = "{\n"
+    for k, v in out.items():
+        jsonout += "\t" + k + ": {\n"
+        for ki, vi in v.items():
+            jsonout += "\t\t" + ki + ": "
+            if type(vi) is dict:
+                jsonout += "{"
+                for index, (kj, vj) in enumerate(vi.items()):
+                    jsonout += kj + ": " + "\"{}\"".format(vj) + ("" if index == len(vi.items())-1 else ", ")
+                jsonout += "}"
+            elif type(vi) is list:
+                jsonout += str(vi)
+            else:
+                jsonout += "\"{}\"".format(vi)
+            jsonout += ",\n"
+        jsonout += "\t},\n"
+    jsonout += "}"
+    return jsonout
+
+def convert_moveset_js_source(out):
+    jsonout = "{\n"
+    for k, v in out.items():
+        jsonout += "\t" + k + ": {"
+        for ki, vi in v.items():
+            jsonout += ki + ": " + "{"
+            for kj, vj in vi.items():
+                jsonout += "\n\t\t" + kj + ": " + str(vj) + ", "
+            jsonout += "\n\t}"
+        jsonout += "},\n"
+    jsonout += "}"
+    return jsonout
 def extract_pokemon_list():
     r = requests.get("https://wiki.p-insurgence.com/index.php?title=Delta_Pokémon&action=raw")
     regex = "{{rdex\|(.*?)(?=}})"
@@ -105,29 +141,20 @@ def extract_pokemon_list():
     return l
 
 pokemon = extract_pokemon_list()
-out = {}
+out_pokemon = {}
+out_moveset = {}
 for i in pokemon:
     url = url_from_id(i)
+    # url = "https://wiki.p-insurgence.com/index.php?title=Delta_Gallade__(Pokémon)&action=raw"
     print(url)
-    dex = format_pokemon(extract_pokemon(requests.get(url).text))
-    out[dex['species'].lower().replace("(","").replace(")","")] = dex
-open("pokemon.json","w").write(json.dumps(out))
-out = json.loads(open("pokemon.json","r").read())
-jsonout = "{\n"
-for k, v in out.items():
-    jsonout += "\t" + k + ": {\n"
-    for ki, vi in v.items():
-        jsonout += "\t\t" + ki + ": "
-        if type(vi) is dict:
-            jsonout += "{"
-            for index, (kj, vj) in enumerate(vi.items()):
-                jsonout += kj + ": " + "\"{}\"".format(vj) + ("" if index == len(vi.items())-1 else ", ")
-            jsonout += "}"
-        elif type(vi) is list:
-            jsonout += str(vi)
-        else:
-            jsonout += "\"{}\"".format(vi)
-        jsonout += ",\n"
-    jsonout += "\t},\n"
-jsonout += "}"
-file = open("convertedpokemon.js","w").write(jsonout)
+    text = requests.get(url).text
+    dex = format_pokemon(extract_pokemon(text))
+    learnset = format_moveset(extract_moveset(text))
+    out_pokemon[dex['species'].lower().replace("(","").replace(")","")] = dex
+    out_moveset[dex['species'].lower().replace("(","").replace(")","")] = {"learnset":learnset}
+open("pokemon.json","w").write(json.dumps(out_pokemon))
+out_pokemon = json.loads(open("pokemon.json","r").read())
+open("learnset.json","w").write(json.dumps(out_moveset))
+out_moveset = json.loads(open("learnset.json","r").read())
+file = open("convertedpokemon.js","w").write(convert_pokemon_js_source(out_pokemon))
+file = open("convertedlearnset.js","w").write(convert_moveset_js_source(out_moveset))
