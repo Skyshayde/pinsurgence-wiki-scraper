@@ -104,6 +104,12 @@ def format_moveset(moveset):
         learnset[i[1]] = [i[0]]
     return learnset
 
+def convert_int_if_possible(input):
+    try:
+        return str(float(input))
+    except ValueError:
+        return "\"{}\"".format(input)
+
 def convert_pokemon_js_source(out):
     jsonout = "{\n"
     for k, v in out.items():
@@ -113,12 +119,12 @@ def convert_pokemon_js_source(out):
             if type(vi) is dict:
                 jsonout += "{"
                 for index, (kj, vj) in enumerate(vi.items()):
-                    jsonout += kj + ": " + "\"{}\"".format(vj) + ("" if index == len(vi.items())-1 else ", ")
+                    jsonout += kj + ": " + convert_int_if_possible(vj) + ("" if index == len(vi.items())-1 else ", ")
                 jsonout += "}"
             elif type(vi) is list:
                 jsonout += str(vi)
             else:
-                jsonout += "\"{}\"".format(vi)
+                jsonout += convert_int_if_possible(vi)
             jsonout += ",\n"
         jsonout += "\t},\n"
     jsonout += "}"
@@ -158,22 +164,22 @@ out_pokemon = {}
 out_moveset = {}
 dex_name_map = {}
 out_pkmlist = []
-for i in pokemon:
-    url = url_from_id(i)
-    print(url)
-    text = requests.get(url).text
-    dex = format_pokemon(extract_pokemon(text))
-    learnset = format_moveset(extract_moveset(text))
-    name = dex['species'].lower().replace("(","").replace(")","")
-    out_pokemon[name] = dex
-    out_moveset[name] = {"learnset":learnset}
-    out_pkmlist.append(name)
-    dex_name_map[dex['num']] = dex['species'].lower()
-open("pokemon.json","w").write(json.dumps(out_pokemon))
+# for i in pokemon:
+#     url = url_from_id(i)
+#     print(url)
+#     text = requests.get(url).text
+#     dex = format_pokemon(extract_pokemon(text))
+#     learnset = format_moveset(extract_moveset(text))
+#     name = dex['species'].lower().replace("(","").replace(")","")
+#     out_pokemon[name] = dex
+#     out_moveset[name] = {"learnset":learnset}
+#     out_pkmlist.append(name)
+#     dex_name_map[dex['num']] = dex['species'].lower()
+# open("pokemon.json","w").write(json.dumps(out_pokemon))
 out_pokemon = json.loads(open("pokemon.json","r").read())
-open("learnset.json","w").write(json.dumps(out_moveset))
+# open("learnset.json","w").write(json.dumps(out_moveset))
 out_moveset = json.loads(open("learnset.json","r").read())
-open("dex_name_map.json","w").write(json.dumps(dex_name_map))
+# open("dex_name_map.json","w").write(json.dumps(dex_name_map))
 dex_name_map = json.loads(open("dex_name_map.json","r").read())
 file = open("convertedpokemon.js","w").write(convert_pokemon_js_source(out_pokemon))
 file = open("convertedlearnset.js","w").write(convert_moveset_js_source(out_moveset))
