@@ -1,6 +1,6 @@
 import re
 import requests
-
+import json
 
 hardurl = "https://wiki.p-insurgence.com/Delta_Bulbasaur_(Pokémon)"
 
@@ -108,3 +108,5 @@ for i in pokemon:
     print(url)
     dex = format_pokemon(extract_pokemon(requests.get(url).text))
     out[dex['species'].lower()] = dex
+
+open("pokemon.json","w").write(json.dumps(out))
