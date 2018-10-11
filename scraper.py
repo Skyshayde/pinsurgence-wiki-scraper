@@ -21,7 +21,7 @@ def move_from_insurgence(move):
     return move in movelist
 
 def ability_from_insurgence(ability):
-    abilitylist = ["absolution","amplifier","ancientpresence","athenian","blazeboost","castlemoat", "chlorofury","etherealshroud","eventhorizon","foundry","glitch","heliophobia","hubris","icecleats","intoxicate","irrelephant","learnean","noctem","omnitype","pendulum","periodicorbit","phototroph","prismguard","proteanmaxima","psychocall","regurgitation","shadowcall","shadowdance","sleet","spectraljaws","speedswap","spiritcall","supercell","syntheticalloy","unleafed","vaporization","venomous","windforce","winterjoy"]
+    abilitylist = ["absolution","amplifier","ancientpresence","athenian","blazeboost","castlemoat", "chlorofury","etherealshroud","eventhorizon","foundry","glitch","heliophobia","hubris","icecleats","intoxicate","irrelephant","learnean","noctem","omnitype","pendulum","periodicorbit","phototroph","prismguard","proteanmaxima","regurgitation","shadowdance","sleet","spectraljaws","speedswap","supercell","syntheticalloy","unleafed","vaporization","venomous","windforce","winterjoy"]
     return ability.lower().replace(" ","") in abilitylist
 
 def extract_moveset(text):
