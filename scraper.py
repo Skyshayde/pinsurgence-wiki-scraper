@@ -132,6 +132,15 @@ def convert_moveset_js_source(out):
         jsonout += "},\n"
     jsonout += "}"
     return jsonout
+
+def convert_format_js_source(out):
+    jsonout = "{\n"
+    for i in out:
+        jsonout += "\t" + i + ": {\n"
+        jsonout += "\t\ttier: \"OU\",\n"
+        jsonout += "\t},\n}"
+    return jsonout
+
 def extract_pokemon_list():
     r = requests.get("https://wiki.p-insurgence.com/index.php?title=Delta_Pokémon&action=raw")
     regex = "{{rdex\|(.*?)(?=}})"
@@ -143,6 +152,7 @@ def extract_pokemon_list():
 pokemon = extract_pokemon_list()
 out_pokemon = {}
 out_moveset = {}
+out_pkmlist = []
 for i in pokemon:
     url = url_from_id(i)
     # url = "https://wiki.p-insurgence.com/index.php?title=Delta_Gallade__(Pokémon)&action=raw"
@@ -150,11 +160,14 @@ for i in pokemon:
     text = requests.get(url).text
     dex = format_pokemon(extract_pokemon(text))
     learnset = format_moveset(extract_moveset(text))
-    out_pokemon[dex['species'].lower().replace("(","").replace(")","")] = dex
-    out_moveset[dex['species'].lower().replace("(","").replace(")","")] = {"learnset":learnset}
+    name = dex['species'].lower().replace("(","").replace(")","")
+    out_pokemon[name] = dex
+    out_moveset[name] = {"learnset":learnset}
+    out_pkmlist.append(name)
 open("pokemon.json","w").write(json.dumps(out_pokemon))
 out_pokemon = json.loads(open("pokemon.json","r").read())
 open("learnset.json","w").write(json.dumps(out_moveset))
 out_moveset = json.loads(open("learnset.json","r").read())
 file = open("convertedpokemon.js","w").write(convert_pokemon_js_source(out_pokemon))
 file = open("convertedlearnset.js","w").write(convert_moveset_js_source(out_moveset))
+file = open("convertedformatlist.js","w").write(convert_format_js_source(out_pkmlist))
