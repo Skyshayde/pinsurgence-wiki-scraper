@@ -42,6 +42,40 @@ def extract_moveset(text):
                 print(move)
                 moves.append(move)
 
+def extract_pokemon(text):
+    regex = "{{Template:Pokémon Infobox(\|.*\|+)}}"
+    card = re.search(regex,text.replace("\n","").replace("\r","")).group().split("|")
+    card.pop()
+    card.pop(0)
+    dex = {}
+    for i in card:
+        isplit = i.split(" = ")
+        dex[isplit[0]] = isplit[1]
+    regex = "{{Template:Stats(.*?)(?=}})"
+    card = re.search(regex,text.replace("\n","").replace("\r","")).group().split("|")
+    card.pop(0)
+    for i in card:
+        isplit = i.split(" = ")
+        dex[isplit[0]] = isplit[1]
+    return dex
+
+def format_pokemon(i):
+    newdex = []
+    newentry = {}
+    newentry['num'] = i['ndex']
+    newentry['species'] = i['name']
+    newentry['types'] = [i['type1'], i['type2']]
+    newentry['genderRatio'] = {"M": 0.50, "F": 0.50}
+    newentry['baseStats'] = {"hp": i['HP'], "atk": i['Attack'], "def": i['Defense'], "spa": i['SpAtk'], "spd": i['SpDef'], "spe": i['Speed']}
+    newentry['abilities'] = {0: i['ability1'], "H": i['abilityd']}
+    if("ability2" in i):
+        newEntry['abilities'][1] = i['ability2']
+    newentry['heightm'] = i['height-m']
+    newentry['weightkg'] = i['weight-kg']
+    newentry['color'] = "Green"
+    newentry['eggGroups'] = ["Undiscovered"]
+
+    return newentry
 
 
 
@@ -49,5 +83,5 @@ pokemon_url = url_from_id(url_to_raw(hardurl))
 
 r = requests.get(pokemon_url)
 
-extract_moveset(r.text)
+print(format_pokemon(extract_pokemon(r.text)))
 
