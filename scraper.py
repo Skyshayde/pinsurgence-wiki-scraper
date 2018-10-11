@@ -9,7 +9,7 @@ def url_to_raw(url):
     return url.split("/")[-1]
 
 def url_from_id(id):
-    return "https://wiki.p-insurgence.com/index.php?title={}&action=raw".format(id)
+    return "https://wiki.p-insurgence.com/index.php?title={}__(Pokémon)&action=raw".format(id.replace(" ","_"))
 
 def move_from_insurgence(move):
     # this is a mistake and I am sorry.  maybe i'll have it fetch moves in the future or something
@@ -83,9 +83,18 @@ def format_moveset(moveset):
         learnset[i[1]] = [i[0]]
     return learnset
 
-pokemon_url = url_from_id(url_to_raw(hardurl))
+def extract_pokemon_list():
+    r = requests.get("https://wiki.p-insurgence.com/index.php?title=Delta_Pokémon&action=raw")
+    regex = "{{rdex\|(.*?)(?=}})"
+    l = []
+    for i in re.findall(regex, r.text):
+        # print(i)
+        l.append(re.search("Delta (.*?)(?=\|)",i).group())
+    print(l)
 
-r = requests.get(pokemon_url)
+# pokemon_url = url_from_id(url_to_raw(hardurl))
 
-print(format_moveset(extract_moveset(r.text)))
+# r = requests.get(pokemon_url)
+
+extract_pokemon_list()
 
