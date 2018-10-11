@@ -1,6 +1,9 @@
 import re
 import requests
 import json
+import os
+from PIL import Image
+import glob
 
 hardurl = "https://wiki.p-insurgence.com/Delta_Bulbasaur_(Pokémon)"
 
@@ -152,21 +155,45 @@ def extract_pokemon_list():
 pokemon = extract_pokemon_list()
 out_pokemon = {}
 out_moveset = {}
+dex_name_map = {}
 out_pkmlist = []
-for i in pokemon:
-    url = url_from_id(i)
-    print(url)
-    text = requests.get(url).text
-    dex = format_pokemon(extract_pokemon(text))
-    learnset = format_moveset(extract_moveset(text))
-    name = dex['species'].lower().replace("(","").replace(")","")
-    out_pokemon[name] = dex
-    out_moveset[name] = {"learnset":learnset}
-    out_pkmlist.append(name)
-open("pokemon.json","w").write(json.dumps(out_pokemon))
+# for i in pokemon:
+#     url = url_from_id(i)
+#     print(url)
+#     text = requests.get(url).text
+#     dex = format_pokemon(extract_pokemon(text))
+#     learnset = format_moveset(extract_moveset(text))
+#     name = dex['species'].lower().replace("(","").replace(")","")
+#     out_pokemon[name] = dex
+#     out_moveset[name] = {"learnset":learnset}
+#     out_pkmlist.append(name)
+#     dex_name_map[dex['num']] = dex['species'].lower()
+# open("pokemon.json","w").write(json.dumps(out_pokemon))
 out_pokemon = json.loads(open("pokemon.json","r").read())
-open("learnset.json","w").write(json.dumps(out_moveset))
+# open("learnset.json","w").write(json.dumps(out_moveset))
 out_moveset = json.loads(open("learnset.json","r").read())
+# open("dex_name_map.json","w").write(json.dumps(dex_name_map))
+dex_name_map = json.loads(open("dex_name_map.json","r").read())
 file = open("convertedpokemon.js","w").write(convert_pokemon_js_source(out_pokemon))
 file = open("convertedlearnset.js","w").write(convert_moveset_js_source(out_moveset))
 file = open("convertedformatlist.js","w").write(convert_format_js_source(out_pkmlist))
+
+for f in glob.glob("sprites/*.png"):
+    img = Image.open(f)
+    filename = f.split("\\")[1]
+    img = img.resize((96,96))
+    species = dex_name_map[filename[0:3]].replace("(","").replace(")","")
+    folder = "front/"
+    if "s" in filename:
+        folder = "front-shiny/"
+    if "b" in filename:
+        folder = "back/"
+    if "b" in filename and "s" in filename:
+        folder = "back-shiny/"
+    if "f" in filename:
+        species += "-f"
+    print(species)
+    img.save("spritesout/" + folder + species + ".png", "PNG")
+# for dirpath, dirs, files in os.walk("sprites"):
+#     for i in files:
+#         print(i)
