@@ -28,19 +28,19 @@ def extract_moveset(text):
             learnmethod = moveset[0]
             if(learnmethod == "level6"):
                 move.append("6L" + moveset[1].replace("Start","1"))
-                movename = moveset[2].lower().replace(" ","")
+                movename = moveset[2].lower().replace(" ","").replace("-","")
                 move.append(movename)
             elif(learnmethod == "tm6"):
                 move.append("6M")
-                movename = moveset[2].lower().replace(" ","")
+                movename = moveset[2].lower().replace(" ","").replace("-","")
                 move.append(movename)
             elif(learnmethod == "tutor6"):
                 move.append("6T")
-                movename = moveset[1].lower().replace(" ","")
+                movename = moveset[1].lower().replace(" ","").replace("-","")
                 move.append(movename)
             if(not(move_from_insurgence(movename))):
-                print(move)
                 moves.append(move)
+    return moves
 
 def extract_pokemon(text):
     regex = "{{Template:Pokémon Infobox(\|.*\|+)}}"
@@ -63,7 +63,7 @@ def format_pokemon(i):
     newdex = []
     newentry = {}
     newentry['num'] = i['ndex']
-    newentry['species'] = i['name']
+    newentry['species'] = i['name'].replace(" ", "")
     newentry['types'] = [i['type1'], i['type2']]
     newentry['genderRatio'] = {"M": 0.50, "F": 0.50}
     newentry['baseStats'] = {"hp": i['HP'], "atk": i['Attack'], "def": i['Defense'], "spa": i['SpAtk'], "spd": i['SpDef'], "spe": i['Speed']}
@@ -77,11 +77,15 @@ def format_pokemon(i):
 
     return newentry
 
-
+def format_moveset(moveset):
+    learnset = {}
+    for i in moveset:
+        learnset[i[1]] = [i[0]]
+    return learnset
 
 pokemon_url = url_from_id(url_to_raw(hardurl))
 
 r = requests.get(pokemon_url)
 
-print(format_pokemon(extract_pokemon(r.text)))
+print(format_moveset(extract_moveset(r.text)))
 
