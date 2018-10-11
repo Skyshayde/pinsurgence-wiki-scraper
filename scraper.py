@@ -43,20 +43,25 @@ def extract_moveset(text):
     return moves
 
 def extract_pokemon(text):
-    regex = "{{Template:Pokémon Infobox(\|.*\|+)}}"
-    card = re.search(regex,text.replace("\n","").replace("\r","")).group().split("|")
+    regex = "}}{{(.*?)PokémonInfobox(.*?)}}"
+    card = re.search(regex,text.replace("\n","").replace("\r","").replace("\t","").replace(" ","")).group().split("|")
     card.pop()
     card.pop(0)
     dex = {}
     for i in card:
-        isplit = i.split(" = ")
+        if i == '':
+            continue
+        isplit = i.replace(" ","").split("=")
         dex[isplit[0]] = isplit[1]
-    regex = "{{Template:Stats(.*?)(?=}})"
-    card = re.search(regex,text.replace("\n","").replace("\r","")).group().split("|")
+    regex = "(?i)Basestats==(.*?){{(.*?)Stats(.*?)(?=}})"
+    card = re.search(regex,text.replace("\n","").replace("\r","").replace(" ","")).group().split("|")
     card.pop(0)
     for i in card:
-        isplit = i.split(" = ")
+        if i == '':
+            continue
+        isplit = i.replace(" ","").split("=")
         dex[isplit[0]] = isplit[1]
+    print(dex['name'])
     return dex
 
 def format_pokemon(i):
@@ -64,12 +69,16 @@ def format_pokemon(i):
     newentry = {}
     newentry['num'] = i['ndex']
     newentry['species'] = i['name'].replace(" ", "")
-    newentry['types'] = [i['type1'], i['type2']]
+    newentry['types'] = [i['type1']]
+    if("type2" in i):
+        newentry['types'].append(i['type2'])
     newentry['genderRatio'] = {"M": 0.50, "F": 0.50}
     newentry['baseStats'] = {"hp": i['HP'], "atk": i['Attack'], "def": i['Defense'], "spa": i['SpAtk'], "spd": i['SpDef'], "spe": i['Speed']}
-    newentry['abilities'] = {0: i['ability1'], "H": i['abilityd']}
+    newentry['abilities'] = {0: i['ability1']}
     if("ability2" in i):
-        newEntry['abilities'][1] = i['ability2']
+        newentry['abilities'][1] = i['ability2']
+    if("abilityd" in i):
+        newentry['abilities']['H'] = i['abilityd']
     newentry['heightm'] = i['height-m']
     newentry['weightkg'] = i['weight-kg']
     newentry['color'] = "Green"
@@ -88,13 +97,14 @@ def extract_pokemon_list():
     regex = "{{rdex\|(.*?)(?=}})"
     l = []
     for i in re.findall(regex, r.text):
-        # print(i)
         l.append(re.search("Delta (.*?)(?=\|)",i).group())
-    print(l)
+    return l
 
-# pokemon_url = url_from_id(url_to_raw(hardurl))
-
-# r = requests.get(pokemon_url)
-
-extract_pokemon_list()
-
+pokemon = extract_pokemon_list()
+out = {}
+for i in pokemon:
+    url = url_from_id(i)
+    # url = "https://wiki.p-insurgence.com/index.php?title=Delta_Torchic__(Pokémon)&action=raw"
+    print(url)
+    dex = format_pokemon(extract_pokemon(requests.get(url).text))
+    out[dex['species'].lower()] = dex
