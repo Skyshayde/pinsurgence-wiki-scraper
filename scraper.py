@@ -102,11 +102,28 @@ def extract_pokemon_list():
 
 pokemon = extract_pokemon_list()
 out = {}
-for i in pokemon:
-    url = url_from_id(i)
-    # url = "https://wiki.p-insurgence.com/index.php?title=Delta_Torchic__(Pokémon)&action=raw"
-    print(url)
-    dex = format_pokemon(extract_pokemon(requests.get(url).text))
-    out[dex['species'].lower()] = dex
-
-open("pokemon.json","w").write(json.dumps(out))
+# for i in pokemon:
+#     url = url_from_id(i)
+#     print(url)
+#     dex = format_pokemon(extract_pokemon(requests.get(url).text))
+#     out[dex['species'].lower()] = dex
+out = json.loads(open("pokemon.json","r").read())
+jsonout = "{\n"
+for k, v in out.items():
+    jsonout += "\t" + k + ": {\n"
+    for ki, vi in v.items():
+        jsonout += "\t\t" + ki + ": "
+        if type(vi) is dict:
+            jsonout += "{"
+            for index, (kj, vj) in enumerate(vi.items()):
+                jsonout += kj + ": " + "\"{}\"".format(vj) + ("" if index == len(vi.items())-1 else ", ")
+            jsonout += "}"
+        elif type(vi) is list:
+            jsonout += str(vi)
+        else:
+            jsonout += "\"{}\"".format(vi)
+        jsonout += ",\n"
+    jsonout += "\t},\n"
+jsonout += "}"
+print(jsonout)
+file = open("convertedpokemon.js","w").write(jsonout)
