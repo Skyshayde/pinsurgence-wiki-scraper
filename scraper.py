@@ -110,7 +110,7 @@ for i in pokemon:
     url = url_from_id(i)
     print(url)
     dex = format_pokemon(extract_pokemon(requests.get(url).text))
-    out[dex['species'].lower()] = dex
+    out[dex['species'].lower().replace("(","").replace(")","")] = dex
 open("pokemon.json","w").write(json.dumps(out))
 out = json.loads(open("pokemon.json","r").read())
 jsonout = "{\n"
@@ -130,5 +130,4 @@ for k, v in out.items():
         jsonout += ",\n"
     jsonout += "\t},\n"
 jsonout += "}"
-print(jsonout)
 file = open("convertedpokemon.js","w").write(jsonout)

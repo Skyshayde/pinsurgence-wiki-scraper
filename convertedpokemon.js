@@ -1655,7 +1655,7 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltabeldum(spider): {
+	deltabeldumspider: {
 		num: "865",
 		species: "DeltaBeldum(Spider)",
 		types: ['Ground', 'Bug'],
@@ -1667,7 +1667,7 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltametang(spider): {
+	deltametangspider: {
 		num: "866",
 		species: "DeltaMetang(Spider)",
 		types: ['Ground', 'Bug'],
@@ -1679,7 +1679,7 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltametagross(spider): {
+	deltametagrossspider: {
 		num: "867",
 		species: "DeltaMetagross(Spider)",
 		types: ['Ground', 'Bug'],
@@ -1691,7 +1691,7 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltabeldum(ruin): {
+	deltabeldumruin: {
 		num: "868",
 		species: "DeltaBeldum(Ruin)",
 		types: ['Rock', 'Grass'],
@@ -1703,7 +1703,7 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltametang(ruin): {
+	deltametangruin: {
 		num: "869",
 		species: "DeltaMetang(Ruin)",
 		types: ['Rock', 'Grass'],
@@ -1715,7 +1715,7 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltametagross(ruin): {
+	deltametagrossruin: {
 		num: "870",
 		species: "DeltaMetagross(Ruin)",
 		types: ['Rock', 'Grass'],
@@ -1835,7 +1835,7 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltapetilil(water): {
+	deltapetililwater: {
 		num: "880",
 		species: "DeltaPetilil(Water)",
 		types: ['Water', 'Fire'],
@@ -1847,7 +1847,7 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltalilligant(water): {
+	deltalilligantwater: {
 		num: "881",
 		species: "DeltaLilligant(Water)",
 		types: ['Water', 'Fire'],
@@ -1859,7 +1859,7 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltapetilil(fairy): {
+	deltapetililfairy: {
 		num: "882",
 		species: "DeltaPetilil(Fairy)",
 		types: ['Fairy', 'Flying'],
@@ -1871,7 +1871,7 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltalilligant(fairy): {
+	deltalilligantfairy: {
 		num: "883",
 		species: "DeltaLilligant(Fairy)",
 		types: ['Fairy', 'Flying'],
@@ -1955,7 +1955,7 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltadwebble(berry): {
+	deltadwebbleberry: {
 		num: "890",
 		species: "DeltaDwebble(Berry)",
 		types: ['Grass', 'Poison'],
@@ -1967,7 +1967,7 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltacrustle(berry): {
+	deltacrustleberry: {
 		num: "891",
 		species: "DeltaCrustle(Berry)",
 		types: ['Grass', 'Poison'],
@@ -1979,7 +1979,7 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltadwebble(cake): {
+	deltadwebblecake: {
 		num: "892",
 		species: "DeltaDwebble(Cake)",
 		types: ['Fairy', 'Normal'],
@@ -1991,7 +1991,7 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltacrustle(cake): {
+	deltacrustlecake: {
 		num: "893",
 		species: "DeltaCrustle(Cake)",
 		types: ['Fairy', 'Normal'],
