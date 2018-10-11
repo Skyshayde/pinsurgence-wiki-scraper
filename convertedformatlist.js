@@ -2,594 +2,595 @@
 	deltabulbasaur: {
 		tier: "OU",
 	},
-	deltaivysaur: {
+}	deltaivysaur: {
 		tier: "OU",
 	},
-	deltavenusaur: {
+}	deltavenusaur: {
 		tier: "OU",
 	},
-	deltacharmander: {
+}	deltacharmander: {
 		tier: "OU",
 	},
-	deltacharmeleon: {
+}	deltacharmeleon: {
 		tier: "OU",
 	},
-	deltacharizard: {
+}	deltacharizard: {
 		tier: "OU",
 	},
-	deltasquirtle: {
+}	deltasquirtle: {
 		tier: "OU",
 	},
-	deltawartortle: {
+}	deltawartortle: {
 		tier: "OU",
 	},
-	deltablastoise: {
+}	deltablastoise: {
 		tier: "OU",
 	},
-	deltapawniard: {
+}	deltapawniard: {
 		tier: "OU",
 	},
-	deltabisharp: {
+}	deltabisharp: {
 		tier: "OU",
 	},
-	deltaralts: {
+}	deltaralts: {
 		tier: "OU",
 	},
-	deltakirlia: {
+}	deltakirlia: {
 		tier: "OU",
 	},
-	deltagardevoir: {
+}	deltagardevoir: {
 		tier: "OU",
 	},
-	deltagallade: {
+}	deltagallade: {
 		tier: "OU",
 	},
-	deltasunkern: {
+}	deltasunkern: {
 		tier: "OU",
 	},
-	deltasunflora: {
+}	deltasunflora: {
 		tier: "OU",
 	},
-	deltabergmite: {
+}	deltabergmite: {
 		tier: "OU",
 	},
-	deltaavalugg: {
+}	deltaavalugg: {
 		tier: "OU",
 	},
-	deltascyther: {
+}	deltascyther: {
 		tier: "OU",
 	},
-	deltascizor: {
+}	deltascizor: {
 		tier: "OU",
 	},
-	deltascraggy: {
+}	deltascraggy: {
 		tier: "OU",
 	},
-	deltascrafty: {
+}	deltascrafty: {
 		tier: "OU",
 	},
-	deltacombee: {
+}	deltacombee: {
 		tier: "OU",
 	},
-	deltavespiquen: {
+}	deltavespiquen: {
 		tier: "OU",
 	},
-	deltakoffing: {
+}	deltakoffing: {
 		tier: "OU",
 	},
-	deltaweezing: {
+}	deltaweezing: {
 		tier: "OU",
 	},
-	deltapurrloin: {
+}	deltapurrloin: {
 		tier: "OU",
 	},
-	deltaliepard: {
+}	deltaliepard: {
 		tier: "OU",
 	},
-	deltaphantump: {
+}	deltaphantump: {
 		tier: "OU",
 	},
-	deltatrevenant: {
+}	deltatrevenant: {
 		tier: "OU",
 	},
-	deltasnorunt: {
+}	deltasnorunt: {
 		tier: "OU",
 	},
-	deltaglalie: {
+}	deltaglalie: {
 		tier: "OU",
 	},
-	deltafroslass: {
+}	deltafroslass: {
 		tier: "OU",
 	},
-	deltashinx: {
+}	deltashinx: {
 		tier: "OU",
 	},
-	deltaluxio: {
+}	deltaluxio: {
 		tier: "OU",
 	},
-	deltaluxray: {
+}	deltaluxray: {
 		tier: "OU",
 	},
-	deltanoibat: {
+}	deltanoibat: {
 		tier: "OU",
 	},
-	deltanoivern: {
+}	deltanoivern: {
 		tier: "OU",
 	},
-	deltabudew: {
+}	deltabudew: {
 		tier: "OU",
 	},
-	deltaroselia: {
+}	deltaroselia: {
 		tier: "OU",
 	},
-	deltaroserade: {
+}	deltaroserade: {
 		tier: "OU",
 	},
-	deltadrifloon: {
+}	deltadrifloon: {
 		tier: "OU",
 	},
-	deltadrifblim: {
+}	deltadrifblim: {
 		tier: "OU",
 	},
-	deltagrimer: {
+}	deltagrimer: {
 		tier: "OU",
 	},
-	deltamuk: {
+}	deltamuk: {
 		tier: "OU",
 	},
-	deltawooper: {
+}	deltawooper: {
 		tier: "OU",
 	},
-	deltaquagsire: {
+}	deltaquagsire: {
 		tier: "OU",
 	},
-	deltamunchlax: {
+}	deltamunchlax: {
 		tier: "OU",
 	},
-	deltasnorlax: {
+}	deltasnorlax: {
 		tier: "OU",
 	},
-	deltamisdreavus: {
+}	deltamisdreavus: {
 		tier: "OU",
 	},
-	deltamismagius: {
+}	deltamismagius: {
 		tier: "OU",
 	},
-	deltacyndaquil: {
+}	deltacyndaquil: {
 		tier: "OU",
 	},
-	deltaquilava: {
+}	deltaquilava: {
 		tier: "OU",
 	},
-	deltatyphlosion: {
+}	deltatyphlosion: {
 		tier: "OU",
 	},
-	deltatreecko: {
+}	deltatreecko: {
 		tier: "OU",
 	},
-	deltagrovyle: {
+}	deltagrovyle: {
 		tier: "OU",
 	},
-	deltasceptile: {
+}	deltasceptile: {
 		tier: "OU",
 	},
-	deltatorchic: {
+}	deltatorchic: {
 		tier: "OU",
 	},
-	deltacombusken: {
+}	deltacombusken: {
 		tier: "OU",
 	},
-	deltablaziken: {
+}	deltablaziken: {
 		tier: "OU",
 	},
-	deltaturtwig: {
+}	deltaturtwig: {
 		tier: "OU",
 	},
-	deltagrotle: {
+}	deltagrotle: {
 		tier: "OU",
 	},
-	deltatorterra: {
+}	deltatorterra: {
 		tier: "OU",
 	},
-	deltasnivy: {
+}	deltasnivy: {
 		tier: "OU",
 	},
-	deltaservine: {
+}	deltaservine: {
 		tier: "OU",
 	},
-	deltaserperior: {
+}	deltaserperior: {
 		tier: "OU",
 	},
-	deltafroakie: {
+}	deltafroakie: {
 		tier: "OU",
 	},
-	deltafrogadier: {
+}	deltafrogadier: {
 		tier: "OU",
 	},
-	deltagreninja: {
+}	deltagreninja: {
 		tier: "OU",
 	},
-	deltapidgey: {
+}	deltapidgey: {
 		tier: "OU",
 	},
-	deltapidgeotto: {
+}	deltapidgeotto: {
 		tier: "OU",
 	},
-	deltapidgeot: {
+}	deltapidgeot: {
 		tier: "OU",
 	},
-	deltadiglett: {
+}	deltadiglett: {
 		tier: "OU",
 	},
-	deltadugtrio: {
+}	deltadugtrio: {
 		tier: "OU",
 	},
-	deltagrowlithe: {
+}	deltagrowlithe: {
 		tier: "OU",
 	},
-	deltaarcanine: {
+}	deltaarcanine: {
 		tier: "OU",
 	},
-	deltageodude: {
+}	deltageodude: {
 		tier: "OU",
 	},
-	deltagraveler: {
+}	deltagraveler: {
 		tier: "OU",
 	},
-	deltagolem: {
+}	deltagolem: {
 		tier: "OU",
 	},
-	deltatentacool: {
+}	deltatentacool: {
 		tier: "OU",
 	},
-	deltatentacruel: {
+}	deltatentacruel: {
 		tier: "OU",
 	},
-	deltadoduo: {
+}	deltadoduo: {
 		tier: "OU",
 	},
-	deltadodrio: {
+}	deltadodrio: {
 		tier: "OU",
 	},
-	deltatangela: {
+}	deltatangela: {
 		tier: "OU",
 	},
-	deltatangrowth: {
+}	deltatangrowth: {
 		tier: "OU",
 	},
-	deltaditto: {
+}	deltaditto: {
 		tier: "OU",
 	},
-	deltakabuto: {
+}	deltakabuto: {
 		tier: "OU",
 	},
-	deltakabutops: {
+}	deltakabutops: {
 		tier: "OU",
 	},
-	deltadratini: {
+}	deltadratini: {
 		tier: "OU",
 	},
-	deltadragonair: {
+}	deltadragonair: {
 		tier: "OU",
 	},
-	deltadragonite: {
+}	deltadragonite: {
 		tier: "OU",
 	},
-	deltahoothoot: {
+}	deltahoothoot: {
 		tier: "OU",
 	},
-	deltanoctowl: {
+}	deltanoctowl: {
 		tier: "OU",
 	},
-	deltachinchou: {
+}	deltachinchou: {
 		tier: "OU",
 	},
-	deltalanturn: {
+}	deltalanturn: {
 		tier: "OU",
 	},
-	deltapichu: {
+}	deltapichu: {
 		tier: "OU",
 	},
-	deltapikachu: {
+}	deltapikachu: {
 		tier: "OU",
 	},
-	deltaraichu: {
+}	deltaraichu: {
 		tier: "OU",
 	},
-	deltaaipom: {
+}	deltaaipom: {
 		tier: "OU",
 	},
-	deltaambipom: {
+}	deltaambipom: {
 		tier: "OU",
 	},
-	deltayanma: {
+}	deltayanma: {
 		tier: "OU",
 	},
-	deltayanmega: {
+}	deltayanmega: {
 		tier: "OU",
 	},
-	deltagirafarig: {
+}	deltagirafarig: {
 		tier: "OU",
 	},
-	deltadunsparce: {
+}	deltadunsparce: {
 		tier: "OU",
 	},
-	deltashuckle: {
+}	deltashuckle: {
 		tier: "OU",
 	},
-	deltaremoraid: {
+}	deltaremoraid: {
 		tier: "OU",
 	},
-	deltaoctillery: {
+}	deltaoctillery: {
 		tier: "OU",
 	},
-	deltaelekid: {
+}	deltaelekid: {
 		tier: "OU",
 	},
-	deltaelectabuzz: {
+}	deltaelectabuzz: {
 		tier: "OU",
 	},
-	deltaelectivire: {
+}	deltaelectivire: {
 		tier: "OU",
 	},
-	deltamagby: {
+}	deltamagby: {
 		tier: "OU",
 	},
-	deltamagmar: {
+}	deltamagmar: {
 		tier: "OU",
 	},
-	deltamagmortar: {
+}	deltamagmortar: {
 		tier: "OU",
 	},
-	deltalotad: {
+}	deltalotad: {
 		tier: "OU",
 	},
-	deltalombre: {
+}	deltalombre: {
 		tier: "OU",
 	},
-	deltaludicolo: {
+}	deltaludicolo: {
 		tier: "OU",
 	},
-	deltaseedot: {
+}	deltaseedot: {
 		tier: "OU",
 	},
-	deltanuzleaf: {
+}	deltanuzleaf: {
 		tier: "OU",
 	},
-	deltashiftry: {
+}	deltashiftry: {
 		tier: "OU",
 	},
-	deltasableye: {
+}	deltasableye: {
 		tier: "OU",
 	},
-	deltamawile: {
+}	deltamawile: {
 		tier: "OU",
 	},
-	deltaaron: {
+}	deltaaron: {
 		tier: "OU",
 	},
-	deltalairon: {
+}	deltalairon: {
 		tier: "OU",
 	},
-	deltaaggron: {
+}	deltaaggron: {
 		tier: "OU",
 	},
-	deltameditite: {
+}	deltameditite: {
 		tier: "OU",
 	},
-	deltamedicham: {
+}	deltamedicham: {
 		tier: "OU",
 	},
-	deltanumel: {
+}	deltanumel: {
 		tier: "OU",
 	},
-	deltacamerupt: {
+}	deltacamerupt: {
 		tier: "OU",
 	},
-	deltaplusle: {
+}	deltaplusle: {
 		tier: "OU",
 	},
-	deltaminun: {
+}	deltaminun: {
 		tier: "OU",
 	},
-	deltawailmer: {
+}	deltawailmer: {
 		tier: "OU",
 	},
-	deltawailord: {
+}	deltawailord: {
 		tier: "OU",
 	},
-	deltafeebas: {
+}	deltafeebas: {
 		tier: "OU",
 	},
-	deltamilotic: {
+}	deltamilotic: {
 		tier: "OU",
 	},
-	deltaclamperl: {
+}	deltaclamperl: {
 		tier: "OU",
 	},
-	deltahuntail: {
+}	deltahuntail: {
 		tier: "OU",
 	},
-	deltagorebyss: {
+}	deltagorebyss: {
 		tier: "OU",
 	},
-	deltabeldumspider: {
+}	deltabeldumspider: {
 		tier: "OU",
 	},
-	deltametangspider: {
+}	deltametangspider: {
 		tier: "OU",
 	},
-	deltametagrossspider: {
+}	deltametagrossspider: {
 		tier: "OU",
 	},
-	deltabeldumruin: {
+}	deltabeldumruin: {
 		tier: "OU",
 	},
-	deltametangruin: {
+}	deltametangruin: {
 		tier: "OU",
 	},
-	deltametagrossruin: {
+}	deltametagrossruin: {
 		tier: "OU",
 	},
-	deltabuneary: {
+}	deltabuneary: {
 		tier: "OU",
 	},
-	deltalopunny: {
+}	deltalopunny: {
 		tier: "OU",
 	},
-	deltariolu: {
+}	deltariolu: {
 		tier: "OU",
 	},
-	deltalucario: {
+}	deltalucario: {
 		tier: "OU",
 	},
-	deltacroagunk: {
+}	deltacroagunk: {
 		tier: "OU",
 	},
-	deltatoxicroak: {
+}	deltatoxicroak: {
 		tier: "OU",
 	},
-	deltavenipede: {
+}	deltavenipede: {
 		tier: "OU",
 	},
-	deltawhirlipede: {
+}	deltawhirlipede: {
 		tier: "OU",
 	},
-	deltascolipede: {
+}	deltascolipede: {
 		tier: "OU",
 	},
-	deltapetililwater: {
+}	deltapetililwater: {
 		tier: "OU",
 	},
-	deltalilligantwater: {
+}	deltalilligantwater: {
 		tier: "OU",
 	},
-	deltapetililfairy: {
+}	deltapetililfairy: {
 		tier: "OU",
 	},
-	deltalilligantfairy: {
+}	deltalilligantfairy: {
 		tier: "OU",
 	},
-	deltasolosis: {
+}	deltasolosis: {
 		tier: "OU",
 	},
-	deltaduosion: {
+}	deltaduosion: {
 		tier: "OU",
 	},
-	deltareuniclus: {
+}	deltareuniclus: {
 		tier: "OU",
 	},
-	deltadarumaka: {
+}	deltadarumaka: {
 		tier: "OU",
 	},
-	deltadarmanitan: {
+}	deltadarmanitan: {
 		tier: "OU",
 	},
-	deltamaractus: {
+}	deltamaractus: {
 		tier: "OU",
 	},
-	deltadwebbleberry: {
+}	deltadwebbleberry: {
 		tier: "OU",
 	},
-	deltacrustleberry: {
+}	deltacrustleberry: {
 		tier: "OU",
 	},
-	deltadwebblecake: {
+}	deltadwebblecake: {
 		tier: "OU",
 	},
-	deltacrustlecake: {
+}	deltacrustlecake: {
 		tier: "OU",
 	},
-	deltayamask: {
+}	deltayamask: {
 		tier: "OU",
 	},
-	deltacofagrigus: {
+}	deltacofagrigus: {
 		tier: "OU",
 	},
-	deltaemolga: {
+}	deltaemolga: {
 		tier: "OU",
 	},
-	deltakarrablast: {
+}	deltakarrablast: {
 		tier: "OU",
 	},
-	deltaescavalier: {
+}	deltaescavalier: {
 		tier: "OU",
 	},
-	deltafoongus: {
+}	deltafoongus: {
 		tier: "OU",
 	},
-	deltaamoonguss: {
+}	deltaamoonguss: {
 		tier: "OU",
 	},
-	deltalitwick: {
+}	deltalitwick: {
 		tier: "OU",
 	},
-	deltalampent: {
+}	deltalampent: {
 		tier: "OU",
 	},
-	deltachandelure: {
+}	deltachandelure: {
 		tier: "OU",
 	},
-	deltaaxew: {
+}	deltaaxew: {
 		tier: "OU",
 	},
-	deltafraxure: {
+}	deltafraxure: {
 		tier: "OU",
 	},
-	deltahaxorus: {
+}	deltahaxorus: {
 		tier: "OU",
 	},
-	deltagolett: {
+}	deltagolett: {
 		tier: "OU",
 	},
-	deltagolurk: {
+}	deltagolurk: {
 		tier: "OU",
 	},
-	deltaheatmor: {
+}	deltaheatmor: {
 		tier: "OU",
 	},
-	deltadeino: {
+}	deltadeino: {
 		tier: "OU",
 	},
-	deltazweilous: {
+}	deltazweilous: {
 		tier: "OU",
 	},
-	deltahydreigon: {
+}	deltahydreigon: {
 		tier: "OU",
 	},
-	deltalarvesta: {
+}	deltalarvesta: {
 		tier: "OU",
 	},
-	deltavolcarona: {
+}	deltavolcarona: {
 		tier: "OU",
 	},
-	deltaamaura: {
+}	deltaamaura: {
 		tier: "OU",
 	},
-	deltaaurorus: {
+}	deltaaurorus: {
 		tier: "OU",
 	},
-	deltagoomy: {
+}	deltagoomy: {
 		tier: "OU",
 	},
-	deltasliggoo: {
+}	deltasliggoo: {
 		tier: "OU",
 	},
-	deltagoodra: {
+}	deltagoodra: {
 		tier: "OU",
 	},
-	deltaregirock: {
+}	deltaregirock: {
 		tier: "OU",
 	},
-	deltaregice: {
+}	deltaregice: {
 		tier: "OU",
 	},
-	deltaregisteel: {
+}	deltaregisteel: {
 		tier: "OU",
 	},
-	deltameloetta: {
+}	deltameloetta: {
 		tier: "OU",
 	},
-	deltahoopa: {
+}	deltahoopa: {
 		tier: "OU",
 	},
+}

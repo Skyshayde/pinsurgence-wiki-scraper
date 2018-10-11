@@ -155,7 +155,6 @@ out_moveset = {}
 out_pkmlist = []
 for i in pokemon:
     url = url_from_id(i)
-    # url = "https://wiki.p-insurgence.com/index.php?title=Delta_Gallade__(Pokémon)&action=raw"
     print(url)
     text = requests.get(url).text
     dex = format_pokemon(extract_pokemon(text))
