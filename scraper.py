@@ -4,6 +4,7 @@ import json
 import os
 from PIL import Image
 import glob
+import pathlib
 
 hardurl = "https://wiki.p-insurgence.com/Delta_Bulbasaur_(Pokémon)"
 
@@ -177,14 +178,14 @@ dex_name_map = json.loads(open("dex_name_map.json","r").read())
 file = open("convertedpokemon.js","w").write(convert_pokemon_js_source(out_pokemon))
 file = open("convertedlearnset.js","w").write(convert_moveset_js_source(out_moveset))
 file = open("convertedformatlist.js","w").write(convert_format_js_source(out_pkmlist))
-os.mkdir("spritesout")
-os.mkdir("spritesout/bw")
-os.mkdir("spritesout/bw-shiny")
-os.mkdir("spritesout/bw-back")
-os.mkdir("spritesout/bw-back-shiny")
-os.mkdir("spritesout/xydex")
-os.mkdir("spritesout/xydex-shiny")
-os.mkdir("deltaicons/bw-shiny")
+pathlib.Path("spritesout").mkdir(parents=True, exist_ok=True)
+pathlib.Path("spritesout/bw").mkdir(parents=True, exist_ok=True)
+pathlib.Path("spritesout/bw-shiny").mkdir(parents=True, exist_ok=True)
+pathlib.Path("spritesout/bw-back").mkdir(parents=True, exist_ok=True)
+pathlib.Path("spritesout/bw-back-shiny").mkdir(parents=True, exist_ok=True)
+pathlib.Path("spritesout/xydex").mkdir(parents=True, exist_ok=True)
+pathlib.Path("spritesout/xydex-shiny").mkdir(parents=True, exist_ok=True)
+pathlib.Path("spritesout/deltaicons").mkdir(parents=True, exist_ok=True)
 
 for f in glob.glob("sprites/*.png"):
     img = Image.open(f)
