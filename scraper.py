@@ -71,7 +71,6 @@ def extract_pokemon(text):
             continue
         isplit = i.split("=")
         dex[isplit[0].strip()] = isplit[1].strip()
-    print(dex['name'])
     return dex
 
 def format_pokemon(i):
@@ -161,34 +160,35 @@ def convert_format_js_source(out):
     jsonout += "exports.BattleFormatsData = BattleFormatsData;"
     return jsonout
 
-def extract_pokemon_list():
+def extract_delta_list():
     r = requests.get("https://wiki.p-insurgence.com/index.php?title=Delta_Pokémon&action=raw")
     regex = "{{rdex\|(.*?)(?=}})"
     l = []
     for i in re.findall(regex, r.text):
         l.append(re.search("Delta (.*?)(?=\|)",i).group())
     return l
-
-pokemon = extract_pokemon_list()
+def extract_mega_list():
+    r = requests.get("https://wiki.p-insurgence.com/index.php?title=Mega_Evolution&action=raw")
+delta_pokemon = extract_delta_list()
 out_pokemon = {}
 out_moveset = {}
 dex_name_map = {}
 out_pkmlist = []
-# for i in pokemon:
-#     url = url_from_id(i)
-#     print(url)
-#     text = requests.get(url).text
-#     dex = format_pokemon(extract_pokemon(text))
-#     learnset = format_moveset(extract_moveset(text))
-#     name = dex['species'].lower().replace("(","").replace(")","")
-#     out_pokemon[name] = dex
-#     out_moveset[name] = {"learnset":learnset}
-#     dex_name_map[dex['num']] = dex['species'].lower()
-# open("pokemon.json","w").write(json.dumps(out_pokemon))
+for i in delta_pokemon:
+    url = url_from_id(i)
+    print(url)
+    text = requests.get(url).text
+    dex = format_pokemon(extract_pokemon(text))
+    learnset = format_moveset(extract_moveset(text))
+    name = dex['species'].lower().replace("(","").replace(")","")
+    out_pokemon[name] = dex
+    out_moveset[name] = {"learnset":learnset}
+    dex_name_map[dex['num']] = dex['species'].lower()
+open("pokemon.json","w").write(json.dumps(out_pokemon))
 out_pokemon = json.loads(open("pokemon.json","r").read())
-# open("learnset.json","w").write(json.dumps(out_moveset))
+open("learnset.json","w").write(json.dumps(out_moveset))
 out_moveset = json.loads(open("learnset.json","r").read())
-# open("dex_name_map.json","w").write(json.dumps(dex_name_map))
+open("dex_name_map.json","w").write(json.dumps(dex_name_map))
 dex_name_map = json.loads(open("dex_name_map.json","r").read())
 
 for k in out_pokemon:
