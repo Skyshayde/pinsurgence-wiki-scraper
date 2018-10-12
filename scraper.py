@@ -111,7 +111,9 @@ def convert_int_if_possible(input):
         return "\"{}\"".format(input)
 
 def convert_pokemon_js_source(out):
-    jsonout = "{\n"
+    jsonout = "\'use strict\';\n\n"
+    jsonout += "/**@type {{[k: string]: ModdedTemplateData}} */\n"
+    jsonout += "let BattlePokedex = {\n"
     for k, v in out.items():
         jsonout += "\t" + k + ": {\n"
         for ki, vi in v.items():
@@ -127,11 +129,14 @@ def convert_pokemon_js_source(out):
                 jsonout += convert_int_if_possible(vi)
             jsonout += ",\n"
         jsonout += "\t},\n"
-    jsonout += "}"
+    jsonout += "};\n\n"
+    jsonout += "exports.BattlePokedex = BattlePokedex;"
     return jsonout
 
 def convert_moveset_js_source(out):
-    jsonout = "{\n"
+    jsonout = "\'use strict\';\n\n"
+    jsonout += "/**@type {{[k: string]: {learnset: {[k: string]: MoveSource[]}}}} */\n"
+    jsonout += "let BattleLearnsets = {\n"
     for k, v in out.items():
         jsonout += "\t" + k + ": {"
         for ki, vi in v.items():
@@ -140,15 +145,20 @@ def convert_moveset_js_source(out):
                 jsonout += "\n\t\t" + kj + ": " + str(vj) + ", "
             jsonout += "\n\t}"
         jsonout += "},\n"
-    jsonout += "}"
+    jsonout += "};\t\t"
+    jsonout += "exports.BattleLearnsets = BattleLearnsets;"
     return jsonout
 
 def convert_format_js_source(out):
-    jsonout = "{\n"
+    jsonout = "\'use strict\';\n\n"
+    jsonout += "/**@type {{[k: string]: ModdedTemplateFormatsData}} */\n"
+    jsonout += "let BattleFormatsData = {\n"    
     for i in out:
         jsonout += "\t" + i + ": {\n"
         jsonout += "\t\ttier: \"OU\",\n"
-        jsonout += "\t},\n}"
+        jsonout += "\t},\n"
+    jsonout += "};\n\n"
+    jsonout += "exports.BattleFormatsData = BattleFormatsData;"
     return jsonout
 
 def extract_pokemon_list():
@@ -173,7 +183,6 @@ out_pkmlist = []
 #     name = dex['species'].lower().replace("(","").replace(")","")
 #     out_pokemon[name] = dex
 #     out_moveset[name] = {"learnset":learnset}
-#     out_pkmlist.append(name)
 #     dex_name_map[dex['num']] = dex['species'].lower()
 # open("pokemon.json","w").write(json.dumps(out_pokemon))
 out_pokemon = json.loads(open("pokemon.json","r").read())
@@ -181,9 +190,12 @@ out_pokemon = json.loads(open("pokemon.json","r").read())
 out_moveset = json.loads(open("learnset.json","r").read())
 # open("dex_name_map.json","w").write(json.dumps(dex_name_map))
 dex_name_map = json.loads(open("dex_name_map.json","r").read())
-file = open("convertedpokemon.js","w").write(convert_pokemon_js_source(out_pokemon))
-file = open("convertedlearnset.js","w").write(convert_moveset_js_source(out_moveset))
-file = open("convertedformatlist.js","w").write(convert_format_js_source(out_pkmlist))
+
+for k in out_pokemon:
+    out_pkmlist.append(k)
+
+pathlib.Path("insurgence").mkdir(parents=True, exist_ok=True)
+
 pathlib.Path("spritesout").mkdir(parents=True, exist_ok=True)
 pathlib.Path("spritesout/bw").mkdir(parents=True, exist_ok=True)
 pathlib.Path("spritesout/bw-shiny").mkdir(parents=True, exist_ok=True)
@@ -192,6 +204,11 @@ pathlib.Path("spritesout/bw-back-shiny").mkdir(parents=True, exist_ok=True)
 pathlib.Path("spritesout/xydex").mkdir(parents=True, exist_ok=True)
 pathlib.Path("spritesout/xydex-shiny").mkdir(parents=True, exist_ok=True)
 pathlib.Path("spritesout/deltaicons").mkdir(parents=True, exist_ok=True)
+
+file = open("insurgence/pokedex.js","w").write(convert_pokemon_js_source(out_pokemon))
+file = open("insurgence/learnsets.js","w").write(convert_moveset_js_source(out_moveset))
+file = open("insurgence/formats-data.js","w").write(convert_format_js_source(out_pkmlist))
+
 
 for f in glob.glob("sprites/*.png"):
     img = Image.open(f)
@@ -220,8 +237,8 @@ for f in glob.glob("sprites/*.png"):
         continue
     imgxy.save("spritesout/" + folder + species + ".png", "PNG")
     # Icons
-    img = img.resize((40,40))
+    imgicon = img.resize((40,40))
     folder = "deltaicons/"
     if "s" in filename or "b" in filename or "f" in filename:
         continue
-    imgxy.save("spritesout/" + folder + species + ".png", "PNG")
+    imgicon.save("spritesout/" + folder + species + ".png", "PNG")

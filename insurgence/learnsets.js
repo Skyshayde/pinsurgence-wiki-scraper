@@ -1,4 +1,7 @@
-{
+'use strict';
+
+/**@type {{[k: string]: {learnset: {[k: string]: MoveSource[]}}}} */
+let BattleLearnsets = {
 	deltabulbasaur: {learnset: {
 		tackle: ['6L1'], 
 		babydolleyes: ['6L3'], 
@@ -14469,4 +14472,4 @@
 		waterpulse: ['6T'], 
 		zenheadbutt: ['6T'], 
 	}},
-}
+};		exports.BattleLearnsets = BattleLearnsets;

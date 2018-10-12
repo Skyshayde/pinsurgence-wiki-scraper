@@ -1,4 +1,7 @@
-{
+'use strict';
+
+/**@type {{[k: string]: ModdedTemplateData}} */
+let BattlePokedex = {
 	deltabulbasaur: {
 		num: 727.0,
 		species: "DeltaBulbasaur",
@@ -2375,4 +2378,6 @@
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-}
+};
+
+exports.BattlePokedex = BattlePokedex;
