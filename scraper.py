@@ -77,7 +77,7 @@ def format_pokemon(i):
     newdex = []
     newentry = {}
     newentry['num'] = i['ndex']
-    newentry['species'] = i['name'].replace(" ", "")
+    newentry['species'] = i['name']
     newentry['types'] = [i['type1']]
     if("type2" in i):
         newentry['types'].append(i['type2'])
@@ -180,10 +180,10 @@ for i in delta_pokemon:
     text = requests.get(url).text
     dex = format_pokemon(extract_pokemon(text))
     learnset = format_moveset(extract_moveset(text))
-    name = dex['species'].lower().replace("(","").replace(")","")
+    name = dex['species'].lower().replace("(","").replace(")","").replace(" ", "")
     out_pokemon[name] = dex
     out_moveset[name] = {"learnset":learnset}
-    dex_name_map[dex['num']] = dex['species'].lower()
+    dex_name_map[dex['num']] = dex['species'].lower().replace(" ", "")
 open("pokemon.json","w").write(json.dumps(out_pokemon))
 out_pokemon = json.loads(open("pokemon.json","r").read())
 open("learnset.json","w").write(json.dumps(out_moveset))
