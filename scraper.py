@@ -51,8 +51,8 @@ def extract_moveset(text):
     return moves
 
 def extract_pokemon(text):
-    regex = "}}{{(.*?)PokémonInfobox(.*?)}}"
-    card = re.search(regex,text.replace("\n","").replace("\r","").replace("\t","").replace(" ","")).group().split("|")
+    regex = "}}( |){{(.*?)Pokémon( |)Infobox(.*?)}}"
+    card = re.search(regex,text.replace("\t","").replace("\n",""),re.DOTALL).group().split("|")
     card.pop()
     card.pop(0)
     dex = {}
@@ -205,7 +205,6 @@ def get_mega_info(pkm):
     return data
 delta_pokemon = extract_delta_list()
 mega_pokemon = extract_mega_list()
-
 out_pokemon = {}
 out_moveset = {}
 dex_name_map = {}
@@ -219,11 +218,12 @@ for i in mega_pokemon:
     dex_name_map[dex['num']] = dex['species'].lower().replace(" ", "")
 for i in delta_pokemon:
     url = url_from_id(i)
+    print(i)
     text = requests.get(url).text
     dex = format_pokemon(extract_pokemon(text))
     learnset = format_moveset(extract_moveset(text))
     name = dex['species'].lower().replace("(","").replace(")","").replace(" ", "")
-    print(name)
+    # print(name)
     out_pokemon[name] = dex
     out_moveset[name] = {"learnset":learnset}
     dex_name_map[dex['num']] = dex['species'].lower().replace(" ", "")
