@@ -125,7 +125,7 @@ def convert_pokemon_js_source(out):
     for k, v in out.items():
         jsonout += "\t" + k + ": {\n"
         for ki, vi in v.items():
-            jsonout += "\t\t" + ki + ": "
+            jsonout += "\t\t" + ki.replace("-","") + ": "
             if type(vi) is dict:
                 jsonout += "{"
                 for index, (kj, vj) in enumerate(vi.items()):
