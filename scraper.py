@@ -21,7 +21,7 @@ def move_from_insurgence(move):
     return move in movelist
 
 def ability_from_insurgence(ability):
-    abilitylist = ["absolution","amplifier","ancientpresence","athenian","blazeboost","castlemoat", "chlorofury","etherealshroud","eventhorizon","foundry","glitch","heliophobia","hubris","icecleats","intoxicate","irrelephant","learnean","noctem","omnitype","pendulum","periodicorbit","phototroph","prismguard","proteanmaxima","regurgitation","shadowdance","sleet","spectraljaws","speedswap","supercell","syntheticalloy","unleafed","vaporization","venomous","windforce","winterjoy"]
+    abilitylist = ["absolution","amplifier","ancientpresence","athenian","blazeboost","castlemoat", "chlorofury","etherealshroud","eventhorizon","foundry","glitch","heliophobia","hubris","intoxicate","irrelephant","learnean","noctem","omnitype","pendulum","periodicorbit","phototroph","prismguard","proteanmaxima","regurgitation","shadowdance","sleet","spectraljaws","speedswap","supercell","syntheticalloy","unleafed","vaporization","venomous","windforce","winterjoy"]
     return ability.lower().replace(" ","") in abilitylist
 
 def extract_moveset(text):
@@ -225,6 +225,8 @@ for f in glob.glob("sprites/*.png"):
         folder = "bw-back-shiny/"
     if "f" in filename:
         species += "-f"
+    if "_1" in filename:
+        species += "-mega"
     imgbw.save("spritesout/" + folder + species + ".png", "PNG")
     # XY
     imgxy = img.resize((120,120))
@@ -235,6 +237,8 @@ for f in glob.glob("sprites/*.png"):
         species += "-f"
     if "b" in filename:
         continue
+    if "_1" in filename:
+        species += "-mega"
     imgxy.save("spritesout/" + folder + species + ".png", "PNG")
     # Icons
     imgicon = img.resize((40,40))
