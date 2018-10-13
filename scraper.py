@@ -77,7 +77,13 @@ def format_pokemon(i):
     newdex = []
     newentry = {}
     newentry['num'] = i['ndex']
-    newentry['species'] = i['name']
+
+    if "formeLetter" in i:
+        newentry['species'] = i['name'] + "-Mega"
+        newentry['baseSpecies'] = i['name']
+        newentry['formeLetter'] = "M"
+    else
+        newentry['species'] = i['name']
     newentry['types'] = [i['type1']]
     if("type2" in i):
         newentry['types'].append(i['type2'])
@@ -88,8 +94,10 @@ def format_pokemon(i):
         newentry['abilities'][1] = "Pickup" if ability_from_insurgence(i['ability2']) else i['ability2']
     if("abilityd" in i):
         newentry['abilities']['H'] = "Pickup" if ability_from_insurgence(i['abilityd']) else i['abilityd']
-    newentry['heightm'] = i['height-m']
-    newentry['weightkg'] = i['weight-kg']
+    if "height-m" in i:
+        newentry['heightm'] = i['height-m']
+    if "weight-kg" in i:
+        newentry['weightkg'] = i['weight-kg']
     newentry['color'] = "Green"
     newentry['eggGroups'] = ["Undiscovered"]
 
@@ -167,20 +175,54 @@ def extract_delta_list():
     for i in re.findall(regex, r.text):
         l.append(re.search("Delta (.*?)(?=\|)",i).group())
     return l
+
 def extract_mega_list():
     r = requests.get("https://wiki.p-insurgence.com/index.php?title=Mega_Evolution&action=raw")
+    regex = "===Unofficial===(.*)"
+    data = re.search(regex,r.text.replace("",""),re.DOTALL).group().replace("\n","")
+    pkm = re.findall("IP\|(.*?)}(.*?)Mega( +)Stone\|(.*?)}", data)
+    out = []
+    for i in range(len(pkm)):
+        out.append((pkm[i][0], pkm[i][3]))
+    return out
+
+def get_mega_info(pkm):
+    abilityregex = "abilitym( |)=( |)(.*?)(\n|\|)"
+    r = requests.get(url_from_id(pkm[0]))
+    print(pkm[0])
+    ability = re.findall(abilityregex,r.text)[0][2]
+    statsdata = re.findall("===Mega(.*?)===(.*?)}", r.text, re.DOTALL)[0][1].replace("\n","").replace(" ","").split("|")[1:]
+    data = {'ability1':ability, 'baseStats':{},"name": pkm[0],"formeLetter": "M"}
+    for i in statsdata:
+        if i == "":
+            continue
+        split = i.split("=")
+        if "type" in split[0]:
+            data["type1"] = split[1]
+            continue
+        data[split[0]] = split[1]
+    data["ndex"] = int(re.findall("ndex( |)=( |)(.*?)( |\||\n)", r.text)[0][2])
+    return data
 delta_pokemon = extract_delta_list()
+mega_pokemon = extract_mega_list()
+
 out_pokemon = {}
 out_moveset = {}
 dex_name_map = {}
 out_pkmlist = []
+
+for i in mega_pokemon:
+    dex = format_pokemon(get_mega_info(i))
+    name = dex['species'].lower().replace("(","").replace(")","")
+    out_pokemon[name] = dex
+    dex_name_map[dex['num']] = dex['species'].lower().replace(" ", "")
 for i in delta_pokemon:
     url = url_from_id(i)
     print(url)
     text = requests.get(url).text
     dex = format_pokemon(extract_pokemon(text))
     learnset = format_moveset(extract_moveset(text))
-    name = dex['species'].lower().replace("(","").replace(")","").replace(" ", "")
+    name = dex['species'].lower().replace("(","").replace(")","")
     out_pokemon[name] = dex
     out_moveset[name] = {"learnset":learnset}
     dex_name_map[dex['num']] = dex['species'].lower().replace(" ", "")
