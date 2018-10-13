@@ -82,7 +82,8 @@ def format_pokemon(i):
         newentry['species'] = i['name'] + "-Mega"
         newentry['baseSpecies'] = i['name']
         newentry['formeLetter'] = "M"
-    else
+        newentry['forme'] = "Mega"
+    else:
         newentry['species'] = i['name']
     newentry['types'] = [i['type1']]
     if("type2" in i):
@@ -189,7 +190,6 @@ def extract_mega_list():
 def get_mega_info(pkm):
     abilityregex = "abilitym( |)=( |)(.*?)(\n|\|)"
     r = requests.get(url_from_id(pkm[0]))
-    print(pkm[0])
     ability = re.findall(abilityregex,r.text)[0][2]
     statsdata = re.findall("===Mega(.*?)===(.*?)}", r.text, re.DOTALL)[0][1].replace("\n","").replace(" ","").split("|")[1:]
     data = {'ability1':ability, 'baseStats':{},"name": pkm[0],"formeLetter": "M"}
@@ -197,7 +197,7 @@ def get_mega_info(pkm):
         if i == "":
             continue
         split = i.split("=")
-        if "type" in split[0]:
+        if "type" in split[0] and "2" not in split[0]:
             data["type1"] = split[1]
             continue
         data[split[0]] = split[1]
@@ -213,16 +213,17 @@ out_pkmlist = []
 
 for i in mega_pokemon:
     dex = format_pokemon(get_mega_info(i))
-    name = dex['species'].lower().replace("(","").replace(")","")
+    name = dex['species'].lower().replace("(","").replace(")","").replace(" ", "")
+    print(name)
     out_pokemon[name] = dex
     dex_name_map[dex['num']] = dex['species'].lower().replace(" ", "")
 for i in delta_pokemon:
     url = url_from_id(i)
-    print(url)
     text = requests.get(url).text
     dex = format_pokemon(extract_pokemon(text))
     learnset = format_moveset(extract_moveset(text))
-    name = dex['species'].lower().replace("(","").replace(")","")
+    name = dex['species'].lower().replace("(","").replace(")","").replace(" ", "")
+    print(name)
     out_pokemon[name] = dex
     out_moveset[name] = {"learnset":learnset}
     dex_name_map[dex['num']] = dex['species'].lower().replace(" ", "")
