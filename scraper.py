@@ -6,8 +6,6 @@ from PIL import Image
 import glob
 import pathlib
 
-hardurl = "https://wiki.p-insurgence.com/Delta_Bulbasaur_(Pokémon)"
-
 
 def url_to_raw(url):
     return url.split("/")[-1]
@@ -123,13 +121,13 @@ def convert_pokemon_js_source(out):
     jsonout += "/**@type {{[k: string]: ModdedTemplateData}} */\n"
     jsonout += "let BattlePokedex = {\n"
     for k, v in out.items():
-        jsonout += "\t" + k + ": {\n"
+        jsonout += "\t" + k.replace("-","") + ": {\n"
         for ki, vi in v.items():
-            jsonout += "\t\t" + ki.replace("-","") + ": "
+            jsonout += "\t\t" + ki.replace("-","")  + ": "
             if type(vi) is dict:
                 jsonout += "{"
                 for index, (kj, vj) in enumerate(vi.items()):
-                    jsonout += kj + ": " + convert_int_if_possible(vj) + ("" if index == len(vi.items())-1 else ", ")
+                    jsonout += kj.replace("-","")  + ": " + convert_int_if_possible(vj) + ("" if index == len(vi.items())-1 else ", ")
                 jsonout += "}"
             elif type(vi) is list:
                 jsonout += str(vi)
@@ -146,11 +144,11 @@ def convert_moveset_js_source(out):
     jsonout += "/**@type {{[k: string]: {learnset: {[k: string]: MoveSource[]}}}} */\n"
     jsonout += "let BattleLearnsets = {\n"
     for k, v in out.items():
-        jsonout += "\t" + k + ": {"
+        jsonout += "\t" + k.replace("-","")  + ": {"
         for ki, vi in v.items():
-            jsonout += ki + ": " + "{"
+            jsonout += ki.replace("-","")  + ": " + "{"
             for kj, vj in vi.items():
-                jsonout += "\n\t\t" + kj + ": " + str(vj) + ", "
+                jsonout += "\n\t\t" + kj.replace("-","")  + ": " + str(vj) + ", "
             jsonout += "\n\t}"
         jsonout += "},\n"
     jsonout += "};\t\t"
@@ -162,7 +160,7 @@ def convert_format_js_source(out):
     jsonout += "/**@type {{[k: string]: ModdedTemplateFormatsData}} */\n"
     jsonout += "let BattleFormatsData = {\n"    
     for i in out:
-        jsonout += "\t" + i + ": {\n"
+        jsonout += "\t" + i.replace("-","")  + ": {\n"
         jsonout += "\t\ttier: \"OU\",\n"
         jsonout += "\t},\n"
     jsonout += "};\n\n"
@@ -271,7 +269,11 @@ for f in glob.glob("sprites/*.png"):
     if "_1" in filename:
         species += "-mega"
     imgbw.save("spritesout/" + folder + species + ".png", "PNG")
+for f in glob.glob("sprites/*.png"):
     # XY
+    img = Image.open(f)
+    filename = f.split("\\")[1]
+    species = dex_name_map[filename[0:3]].replace("(","").replace(")","")
     imgxy = img.resize((120,120))
     folder = "xydex/"
     if "s" in filename:
@@ -283,9 +285,15 @@ for f in glob.glob("sprites/*.png"):
     if "_1" in filename:
         species += "-mega"
     imgxy.save("spritesout/" + folder + species + ".png", "PNG")
+for f in glob.glob("sprites/*.png"):
+    img = Image.open(f)
+    filename = f.split("\\")[1]
+    species = dex_name_map[filename[0:3]].replace("(","").replace(")","")
     # Icons
     imgicon = img.resize((40,40))
     folder = "deltaicons/"
     if "s" in filename or "b" in filename or "f" in filename:
         continue
+    if "_1" in filename:
+        species += "mega"
     imgicon.save("spritesout/" + folder + species + ".png", "PNG")

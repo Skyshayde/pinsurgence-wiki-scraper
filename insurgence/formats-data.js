@@ -2,160 +2,160 @@
 
 /**@type {{[k: string]: ModdedTemplateFormatsData}} */
 let BattleFormatsData = {
-	poliwrath-mega: {
+	poliwrathmega: {
 		tier: "OU",
 	},
-	marowak-mega: {
+	marowakmega: {
 		tier: "OU",
 	},
-	eevee-mega: {
+	eeveemega: {
 		tier: "OU",
 	},
-	meganium-mega: {
+	meganiummega: {
 		tier: "OU",
 	},
-	typhlosion-mega: {
+	typhlosionmega: {
 		tier: "OU",
 	},
-	feraligatr-mega: {
+	feraligatrmega: {
 		tier: "OU",
 	},
-	sudowoodo-mega: {
+	sudowoodomega: {
 		tier: "OU",
 	},
-	politoed-mega: {
+	politoedmega: {
 		tier: "OU",
 	},
-	sunflora-mega: {
+	sunfloramega: {
 		tier: "OU",
 	},
-	girafarig-mega: {
+	girafarigmega: {
 		tier: "OU",
 	},
-	steelix-mega: {
+	steelixmega: {
 		tier: "OU",
 	},
-	magcargo-mega: {
+	magcargomega: {
 		tier: "OU",
 	},
-	donphan-mega: {
+	donphanmega: {
 		tier: "OU",
 	},
-	miltank-mega: {
+	miltankmega: {
 		tier: "OU",
 	},
-	shiftry-mega: {
+	shiftrymega: {
 		tier: "OU",
 	},
-	flygon-mega: {
+	flygonmega: {
 		tier: "OU",
 	},
-	cacturne-mega: {
+	cacturnemega: {
 		tier: "OU",
 	},
-	crawdaunt-mega: {
+	crawdauntmega: {
 		tier: "OU",
 	},
-	milotic-mega: {
+	miloticmega: {
 		tier: "OU",
 	},
-	jirachi-mega: {
+	jirachimega: {
 		tier: "OU",
 	},
-	chatot-mega: {
+	chatotmega: {
 		tier: "OU",
 	},
-	zebstrika-mega: {
+	zebstrikamega: {
 		tier: "OU",
 	},
-	zoroark-mega: {
+	zoroarkmega: {
 		tier: "OU",
 	},
-	gothitelle-mega: {
+	gothitellemega: {
 		tier: "OU",
 	},
-	reuniclus-mega: {
+	reuniclusmega: {
 		tier: "OU",
 	},
-	cryogonal-mega: {
+	cryogonalmega: {
 		tier: "OU",
 	},
-	haxorus-mega: {
+	haxorusmega: {
 		tier: "OU",
 	},
-	stunfisk-mega: {
+	stunfiskmega: {
 		tier: "OU",
 	},
-	bisharp-mega: {
+	bisharpmega: {
 		tier: "OU",
 	},
-	hydreigon-mega: {
+	hydreigonmega: {
 		tier: "OU",
 	},
-	deltavenusaur-mega: {
+	deltavenusaurmega: {
 		tier: "OU",
 	},
-	deltacharizard-mega: {
+	deltacharizardmega: {
 		tier: "OU",
 	},
-	deltablastoise-mega: {
+	deltablastoisemega: {
 		tier: "OU",
 	},
-	deltabisharp-mega: {
+	deltabisharpmega: {
 		tier: "OU",
 	},
-	deltagardevoir-mega: {
+	deltagardevoirmega: {
 		tier: "OU",
 	},
-	deltagallade-mega: {
+	deltagallademega: {
 		tier: "OU",
 	},
-	deltasunflora-mega: {
+	deltasunfloramega: {
 		tier: "OU",
 	},
-	deltascizor-mega: {
+	deltascizormega: {
 		tier: "OU",
 	},
-	deltaglalie-mega: {
+	deltaglaliemega: {
 		tier: "OU",
 	},
-	deltafroslass-mega: {
+	deltafroslassmega: {
 		tier: "OU",
 	},
-	deltatyphlosion-mega: {
+	deltatyphlosionmega: {
 		tier: "OU",
 	},
-	deltapidgeot-mega: {
+	deltapidgeotmega: {
 		tier: "OU",
 	},
-	deltagirafarig-mega: {
+	deltagirafarigmega: {
 		tier: "OU",
 	},
-	deltasableye-mega: {
+	deltasableyemega: {
 		tier: "OU",
 	},
-	deltamawile-mega: {
+	deltamawilemega: {
 		tier: "OU",
 	},
-	deltamedicham-mega: {
+	deltamedichammega: {
 		tier: "OU",
 	},
-	deltacamerupt-mega: {
+	deltacameruptmega: {
 		tier: "OU",
 	},
-	deltamilotic-mega: {
+	deltamiloticmega: {
 		tier: "OU",
 	},
-	deltametagrossspider-mega: {
+	deltametagrossspidermega: {
 		tier: "OU",
 	},
-	deltametagrossruin-mega: {
+	deltametagrossruinmega: {
 		tier: "OU",
 	},
-	deltalopunny-mega: {
+	deltalopunnymega: {
 		tier: "OU",
 	},
-	deltalucario-mega: {
+	deltalucariomega: {
 		tier: "OU",
 	},
 	deltabulbasaur: {

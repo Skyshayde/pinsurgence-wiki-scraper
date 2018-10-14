@@ -2,7 +2,7 @@
 
 /**@type {{[k: string]: ModdedTemplateData}} */
 let BattlePokedex = {
-	poliwrath-mega: {
+	poliwrathmega: {
 		num: 62.0,
 		species: "Poliwrath-Mega",
 		baseSpecies: "Poliwrath",
@@ -15,7 +15,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	marowak-mega: {
+	marowakmega: {
 		num: 105.0,
 		species: "Marowak-Mega",
 		baseSpecies: "Marowak",
@@ -28,7 +28,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	eevee-mega: {
+	eeveemega: {
 		num: 133.0,
 		species: "Eevee-Mega",
 		baseSpecies: "Eevee",
@@ -41,7 +41,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	meganium-mega: {
+	meganiummega: {
 		num: 154.0,
 		species: "Meganium-Mega",
 		baseSpecies: "Meganium",
@@ -54,7 +54,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	typhlosion-mega: {
+	typhlosionmega: {
 		num: 157.0,
 		species: "Typhlosion-Mega",
 		baseSpecies: "Typhlosion",
@@ -67,7 +67,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	feraligatr-mega: {
+	feraligatrmega: {
 		num: 160.0,
 		species: "Feraligatr-Mega",
 		baseSpecies: "Feraligatr",
@@ -80,7 +80,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	sudowoodo-mega: {
+	sudowoodomega: {
 		num: 185.0,
 		species: "Sudowoodo-Mega",
 		baseSpecies: "Sudowoodo",
@@ -93,7 +93,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	politoed-mega: {
+	politoedmega: {
 		num: 186.0,
 		species: "Politoed-Mega",
 		baseSpecies: "Politoed",
@@ -106,7 +106,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	sunflora-mega: {
+	sunfloramega: {
 		num: 192.0,
 		species: "Sunflora-Mega",
 		baseSpecies: "Sunflora",
@@ -119,7 +119,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	girafarig-mega: {
+	girafarigmega: {
 		num: 203.0,
 		species: "Girafarig-Mega",
 		baseSpecies: "Girafarig",
@@ -132,7 +132,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	steelix-mega: {
+	steelixmega: {
 		num: 208.0,
 		species: "Steelix-Mega",
 		baseSpecies: "Steelix",
@@ -145,7 +145,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	magcargo-mega: {
+	magcargomega: {
 		num: 219.0,
 		species: "Magcargo-Mega",
 		baseSpecies: "Magcargo",
@@ -158,7 +158,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	donphan-mega: {
+	donphanmega: {
 		num: 232.0,
 		species: "Donphan-Mega",
 		baseSpecies: "Donphan",
@@ -171,7 +171,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	miltank-mega: {
+	miltankmega: {
 		num: 241.0,
 		species: "Miltank-Mega",
 		baseSpecies: "Miltank",
@@ -184,7 +184,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	shiftry-mega: {
+	shiftrymega: {
 		num: 275.0,
 		species: "Shiftry-Mega",
 		baseSpecies: "Shiftry",
@@ -197,7 +197,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	flygon-mega: {
+	flygonmega: {
 		num: 330.0,
 		species: "Flygon-Mega",
 		baseSpecies: "Flygon",
@@ -210,7 +210,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	cacturne-mega: {
+	cacturnemega: {
 		num: 332.0,
 		species: "Cacturne-Mega",
 		baseSpecies: "Cacturne",
@@ -223,7 +223,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	crawdaunt-mega: {
+	crawdauntmega: {
 		num: 342.0,
 		species: "Crawdaunt-Mega",
 		baseSpecies: "Crawdaunt",
@@ -236,7 +236,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	milotic-mega: {
+	miloticmega: {
 		num: 350.0,
 		species: "Milotic-Mega",
 		baseSpecies: "Milotic",
@@ -249,7 +249,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	jirachi-mega: {
+	jirachimega: {
 		num: 385.0,
 		species: "Jirachi-Mega",
 		baseSpecies: "Jirachi",
@@ -262,7 +262,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	chatot-mega: {
+	chatotmega: {
 		num: 441.0,
 		species: "Chatot-Mega",
 		baseSpecies: "Chatot",
@@ -275,7 +275,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	zebstrika-mega: {
+	zebstrikamega: {
 		num: 523.0,
 		species: "Zebstrika-Mega",
 		baseSpecies: "Zebstrika",
@@ -288,7 +288,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	zoroark-mega: {
+	zoroarkmega: {
 		num: 571.0,
 		species: "Zoroark-Mega",
 		baseSpecies: "Zoroark",
@@ -301,7 +301,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	gothitelle-mega: {
+	gothitellemega: {
 		num: 576.0,
 		species: "Gothitelle-Mega",
 		baseSpecies: "Gothitelle",
@@ -314,7 +314,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	reuniclus-mega: {
+	reuniclusmega: {
 		num: 579.0,
 		species: "Reuniclus-Mega",
 		baseSpecies: "Reuniclus",
@@ -327,7 +327,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	cryogonal-mega: {
+	cryogonalmega: {
 		num: 615.0,
 		species: "Cryogonal-Mega",
 		baseSpecies: "Cryogonal",
@@ -340,7 +340,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	haxorus-mega: {
+	haxorusmega: {
 		num: 612.0,
 		species: "Haxorus-Mega",
 		baseSpecies: "Haxorus",
@@ -353,7 +353,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	stunfisk-mega: {
+	stunfiskmega: {
 		num: 618.0,
 		species: "Stunfisk-Mega",
 		baseSpecies: "Stunfisk",
@@ -366,7 +366,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	bisharp-mega: {
+	bisharpmega: {
 		num: 625.0,
 		species: "Bisharp-Mega",
 		baseSpecies: "Bisharp",
@@ -379,7 +379,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	hydreigon-mega: {
+	hydreigonmega: {
 		num: 635.0,
 		species: "Hydreigon-Mega",
 		baseSpecies: "Hydreigon",
@@ -392,7 +392,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltavenusaur-mega: {
+	deltavenusaurmega: {
 		num: 729.0,
 		species: "Delta Venusaur-Mega",
 		baseSpecies: "Delta Venusaur",
@@ -405,7 +405,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltacharizard-mega: {
+	deltacharizardmega: {
 		num: 732.0,
 		species: "Delta Charizard-Mega",
 		baseSpecies: "Delta Charizard",
@@ -418,7 +418,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltablastoise-mega: {
+	deltablastoisemega: {
 		num: 735.0,
 		species: "Delta Blastoise-Mega",
 		baseSpecies: "Delta Blastoise",
@@ -431,7 +431,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltabisharp-mega: {
+	deltabisharpmega: {
 		num: 737.0,
 		species: "Delta Bisharp-Mega",
 		baseSpecies: "Delta Bisharp",
@@ -444,7 +444,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltagardevoir-mega: {
+	deltagardevoirmega: {
 		num: 740.0,
 		species: "Delta Gardevoir-Mega",
 		baseSpecies: "Delta Gardevoir",
@@ -457,7 +457,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltagallade-mega: {
+	deltagallademega: {
 		num: 741.0,
 		species: "Delta Gallade-Mega",
 		baseSpecies: "Delta Gallade",
@@ -470,7 +470,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltasunflora-mega: {
+	deltasunfloramega: {
 		num: 743.0,
 		species: "Delta Sunflora-Mega",
 		baseSpecies: "Delta Sunflora",
@@ -483,7 +483,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltascizor-mega: {
+	deltascizormega: {
 		num: 747.0,
 		species: "Delta Scizor-Mega",
 		baseSpecies: "Delta Scizor",
@@ -496,7 +496,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltaglalie-mega: {
+	deltaglaliemega: {
 		num: 759.0,
 		species: "Delta Glalie-Mega",
 		baseSpecies: "Delta Glalie",
@@ -509,7 +509,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltafroslass-mega: {
+	deltafroslassmega: {
 		num: 760.0,
 		species: "Delta Froslass-Mega",
 		baseSpecies: "Delta Froslass",
@@ -522,7 +522,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltatyphlosion-mega: {
+	deltatyphlosionmega: {
 		num: 781.0,
 		species: "Delta Typhlosion-Mega",
 		baseSpecies: "Delta Typhlosion",
@@ -535,7 +535,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltapidgeot-mega: {
+	deltapidgeotmega: {
 		num: 799.0,
 		species: "Delta Pidgeot-Mega",
 		baseSpecies: "Delta Pidgeot",
@@ -548,7 +548,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltagirafarig-mega: {
+	deltagirafarigmega: {
 		num: 830.0,
 		species: "Delta Girafarig-Mega",
 		baseSpecies: "Delta Girafarig",
@@ -561,7 +561,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltasableye-mega: {
+	deltasableyemega: {
 		num: 847.0,
 		species: "Delta Sableye-Mega",
 		baseSpecies: "Delta Sableye",
@@ -574,7 +574,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltamawile-mega: {
+	deltamawilemega: {
 		num: 848.0,
 		species: "Delta Mawile-Mega",
 		baseSpecies: "Delta Mawile",
@@ -587,7 +587,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltamedicham-mega: {
+	deltamedichammega: {
 		num: 853.0,
 		species: "Delta Medicham-Mega",
 		baseSpecies: "Delta Medicham",
@@ -600,7 +600,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltacamerupt-mega: {
+	deltacameruptmega: {
 		num: 855.0,
 		species: "Delta Camerupt-Mega",
 		baseSpecies: "Delta Camerupt",
@@ -613,7 +613,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltamilotic-mega: {
+	deltamiloticmega: {
 		num: 861.0,
 		species: "Delta Milotic-Mega",
 		baseSpecies: "Delta Milotic",
@@ -626,7 +626,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltametagrossspider-mega: {
+	deltametagrossspidermega: {
 		num: 867.0,
 		species: "Delta Metagross (Spider)-Mega",
 		baseSpecies: "Delta Metagross (Spider)",
@@ -639,7 +639,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltametagrossruin-mega: {
+	deltametagrossruinmega: {
 		num: 870.0,
 		species: "Delta Metagross (Ruin)-Mega",
 		baseSpecies: "Delta Metagross (Ruin)",
@@ -652,7 +652,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltalopunny-mega: {
+	deltalopunnymega: {
 		num: 872.0,
 		species: "Delta Lopunny-Mega",
 		baseSpecies: "Delta Lopunny",
@@ -665,7 +665,7 @@ let BattlePokedex = {
 		color: "Green",
 		eggGroups: ['Undiscovered'],
 	},
-	deltalucario-mega: {
+	deltalucariomega: {
 		num: 874.0,
 		species: "Delta Lucario-Mega",
 		baseSpecies: "Delta Lucario",
