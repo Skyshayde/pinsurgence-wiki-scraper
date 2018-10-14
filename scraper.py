@@ -19,7 +19,7 @@ def move_from_insurgence(move):
     return move in movelist
 
 def ability_from_insurgence(ability):
-    abilitylist = ["absolution","amplifier","ancientpresence","athenian","blazeboost","castlemoat", "chlorofury","etherealshroud","eventhorizon","foundry","glitch","heliophobia","hubris","intoxicate","irrelephant","learnean","noctem","omnitype","pendulum","periodicorbit","phototroph","prismguard","proteanmaxima","regurgitation","shadowdance","sleet","spectraljaws","speedswap","supercell","syntheticalloy","unleafed","vaporization","venomous","windforce","winterjoy"]
+    abilitylist = ["absolution","ancientpresence","blazeboost","castlemoat", "chlorofury","etherealshroud","eventhorizon","foundry","glitch","heliophobia","intoxicate","irrelephant","learnean","noctem","omnitype","pendulum","periodicorbit","phototroph","prismguard","proteanmaxima","regurgitation","shadowdance","sleet","spectraljaws","speedswap","supercell","syntheticalloy","unleafed","vaporization","venomous","windforce","winterjoy"]
     return ability.lower().replace(" ","") in abilitylist
 
 def extract_moveset(text):
@@ -204,14 +204,15 @@ def get_mega_info(pkm):
 
 stone_counter = 1
 def get_megastone_info(pkm):
+    global stone_counter
     stone = {}
-    stone['id'] = pkm[1].lower()
+    stone['id'] = pkm[1].lower().replace(" ","").replace("(","").replace(")","")
     stone['name'] = pkm[1]
     stone['spritenum'] = 575 #placeholder
-    stone['megaStone'] = pkm[0]
+    stone['megaStone'] = pkm[0] + "-Mega"
     stone['megaEvolves'] = pkm[0].split("-")[0]
     stone['number'] = 1110 + stone_counter
-    stone_counter =+ 1
+    stone_counter += 1
     stone['gen'] = 6
     stone['desc'] = "If held by an {}, this item allows it to Mega Evolve in battle.".format(pkm[0].split("-")[0])
     return stone
@@ -222,7 +223,7 @@ def convert_megastone_js_source(stones):
     jsonout += "let BattleItems = {\n"
     print(stones)
     for i in stones:
-        jsonout += "\t\"" + i['id'] + "\": {\n"
+        jsonout += "\t" + i['id'] + ": {\n"
         for k, v in i.items():
             jsonout += "\t\t" + k + ": \"{}\",\n".format(v)
         jsonout += "\t\tonTakeItem: function (item, source) {\n"
@@ -236,7 +237,7 @@ delta_pokemon = []
 mega_pokemon = []
 
 # delta_pokemon = extract_delta_list()
-# mega_pokemon = extract_mega_list()
+mega_pokemon = extract_mega_list()
 out_pokemon = {}
 out_moveset = {}
 dex_name_map = {}
@@ -267,7 +268,7 @@ out_pokemon = json.loads(open("pokemon.json","r").read())
 out_moveset = json.loads(open("learnset.json","r").read())
 # open("dex_name_map.json","w").write(json.dumps(dex_name_map))
 dex_name_map = json.loads(open("dex_name_map.json","r").read())
-# open("megastonelist.json","w").write(json.dumps(megastonelist))
+open("megastonelist.json","w").write(json.dumps(megastonelist))
 megastonelist = json.loads(open("megastonelist.json","r").read())
 
 for k in out_pokemon:
