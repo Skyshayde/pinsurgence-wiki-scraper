@@ -201,15 +201,51 @@ def get_mega_info(pkm):
         data[split[0]] = split[1]
     data["ndex"] = int(re.findall("ndex( |)=( |)(.*?)( |\||\n)", r.text)[0][2])
     return data
-delta_pokemon = extract_delta_list()
-mega_pokemon = extract_mega_list()
+
+stone_counter = 1
+def get_megastone_info(pkm):
+    stone = {}
+    stone['id'] = pkm[1].lower()
+    stone['name'] = pkm[1]
+    stone['spritenum'] = 575 #placeholder
+    stone['megaStone'] = pkm[0]
+    stone['megaEvolves'] = pkm[0].split("-")[0]
+    stone['number'] = 1110 + stone_counter
+    stone_counter =+ 1
+    stone['gen'] = 6
+    stone['desc'] = "If held by an {}, this item allows it to Mega Evolve in battle.".format(pkm[0].split("-")[0])
+    return stone
+
+def convert_megastone_js_source(stones):
+    jsonout = "'use strict';\n\n"
+    jsonout += "/**@type {{[k: string]: ItemData}} */\n"
+    jsonout += "let BattleItems = {\n"
+    print(stones)
+    for i in stones:
+        jsonout += "\t\"" + i['id'] + "\": {\n"
+        for k, v in i.items():
+            jsonout += "\t\t" + k + ": \"{}\",\n".format(v)
+        jsonout += "\t\tonTakeItem: function (item, source) {\n"
+        jsonout += "\t\t\tif (item.megaEvolves === source.baseTemplate.baseSpecies) return false;\n"
+        jsonout += "\t\t\treturn true;\n"
+        jsonout += "\t\t},\n\t},\n"
+    jsonout += "};\n\nexports.BattleItems = BattleItems;"
+    return jsonout
+
+delta_pokemon = []
+mega_pokemon = []
+
+# delta_pokemon = extract_delta_list()
+# mega_pokemon = extract_mega_list()
 out_pokemon = {}
 out_moveset = {}
 dex_name_map = {}
 out_pkmlist = []
+megastonelist = []
 
 for i in mega_pokemon:
     dex = format_pokemon(get_mega_info(i))
+    megastonelist.append(get_megastone_info(i))
     name = dex['species'].lower().replace("(","").replace(")","").replace(" ", "")
     print(name)
     out_pokemon[name] = dex
@@ -225,12 +261,14 @@ for i in delta_pokemon:
     out_pokemon[name] = dex
     out_moveset[name] = {"learnset":learnset}
     dex_name_map[dex['num']] = dex['species'].lower().replace(" ", "")
-open("pokemon.json","w").write(json.dumps(out_pokemon))
+# open("pokemon.json","w").write(json.dumps(out_pokemon))
 out_pokemon = json.loads(open("pokemon.json","r").read())
-open("learnset.json","w").write(json.dumps(out_moveset))
+# open("learnset.json","w").write(json.dumps(out_moveset))
 out_moveset = json.loads(open("learnset.json","r").read())
-open("dex_name_map.json","w").write(json.dumps(dex_name_map))
+# open("dex_name_map.json","w").write(json.dumps(dex_name_map))
 dex_name_map = json.loads(open("dex_name_map.json","r").read())
+# open("megastonelist.json","w").write(json.dumps(megastonelist))
+megastonelist = json.loads(open("megastonelist.json","r").read())
 
 for k in out_pokemon:
     out_pkmlist.append(k)
@@ -249,6 +287,7 @@ pathlib.Path("spritesout/deltaicons").mkdir(parents=True, exist_ok=True)
 file = open("insurgence/pokedex.js","w").write(convert_pokemon_js_source(out_pokemon))
 file = open("insurgence/learnsets.js","w").write(convert_moveset_js_source(out_moveset))
 file = open("insurgence/formats-data.js","w").write(convert_format_js_source(out_pkmlist))
+file = open("insurgence/items.js","w").write(convert_megastone_js_source(megastonelist))
 
 
 for f in glob.glob("sprites/*.png"):
