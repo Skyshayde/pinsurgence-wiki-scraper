@@ -352,7 +352,7 @@ for f in glob.glob("sprites/*.png"):
     if "f" in filename:
         species += "-f"
     if "_1" in filename:
-        species += "-mega"
+        species = species[:-4] + "-mega"
     imgbw.save("spritesout/" + folder + species + ".png", "PNG")
 for f in glob.glob("sprites/*.png"):
     # XY
@@ -371,19 +371,22 @@ for f in glob.glob("sprites/*.png"):
     if "b" in filename:
         continue
     if "_1" in filename:
-        species += "-mega"
+        # this is a hack
+        species = species[:-4] + "-mega"
     imgxy.save("spritesout/" + folder + species + ".png", "PNG")
-for f in glob.glob("sprites/*.png"):
+# Icons
+for f in glob.glob("icons/*.png"):
     img = Image.open(f)
     filename = f.split("\\")[1]
     try:
-        species = strip(dex_name_map[filename[0:3].lstrip("0")])
+        species = strip(dex_name_map[filename[4:7].lstrip("0")])
     except KeyError:
-        species = "unknown"    # Icons
+        species = "unknown"
+    img = img.crop((0,0,64,64))
     imgicon = img.resize((40, 40))
     folder = "deltaicons/"
-    if "s" in filename or "b" in filename or "f" in filename:
+    if "s" in filename or "f" in filename:
         continue
     if "_1" in filename:
-        species += "mega"
+        species = species[:-4] + "-mega"
     imgicon.save("spritesout/" + folder + species + ".png", "PNG")
